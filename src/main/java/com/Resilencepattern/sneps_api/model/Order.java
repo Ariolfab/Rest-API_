@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "orders") 
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -24,51 +24,56 @@ public class Order {
     private String status;
     private Double totalAmount;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public String getStatus() {
-        return status;
-    }
+    // === Getters & Setters ===
 
-    public void setTotalAmount(Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-    public String getCustomerName() {
-        return customerName;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getId()
-    {
-        return id;
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    // Getters & Setters
 }
