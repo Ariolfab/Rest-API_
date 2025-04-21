@@ -24,6 +24,13 @@
 
     <dependencies>
 
+	
+<dependency>
+    <groupId>org.hibernate.validator</groupId>
+    <artifactId>hibernate-validator</artifactId>
+</dependency>
+
+
         <!-- ✅ Web API -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
