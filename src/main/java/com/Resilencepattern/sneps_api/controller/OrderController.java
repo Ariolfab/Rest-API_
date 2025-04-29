@@ -48,7 +48,7 @@ public class OrderController {
         return orderService.updateOrderStatus(id, status);
     }
 
-    // DELETE (facultatif si tu veux le rajouter pour tests)
+    // DELETE 
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);

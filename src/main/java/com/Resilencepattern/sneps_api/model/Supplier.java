@@ -3,6 +3,8 @@ package com.Resilencepattern.sneps_api.model;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Supplier {
 
@@ -14,9 +16,11 @@ public class Supplier {
     private String contactInfo;
 
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    @JsonManagedReference // Gère la liste des produits et évite la boucle JSON
     private List<Product> products;
 
     // Getters & Setters
+
     public Long getId() {
         return id;
     }
@@ -49,3 +53,4 @@ public class Supplier {
         this.products = products;
     }
 }
+

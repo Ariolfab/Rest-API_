@@ -1,3 +1,4 @@
+
 package com.Resilencepattern.sneps_api.controller;
 
 import com.Resilencepattern.sneps_api.model.Product;
@@ -46,10 +47,13 @@ public class ProductController {
     }
 
     // BONUS : GET /products?pricemin=x&pricemax=y
-    @GetMapping(params = {"pricemin", "pricemax"})
-    public List<Product> getProductsByPriceRange(@RequestParam Double pricemin, @RequestParam Double pricemax) {
-        return productService.getAllProducts().stream()
-                .filter(p -> p.getPrice() >= pricemin && p.getPrice() <= pricemax)
-                .toList();
-    }
+    //  @GetMapping(params = {"pricemin", "pricemax"})
+    // public List<Product> getProductsByPriceRange(@RequestParam Double pricemin, @RequestParam Double pricemax) {
+        // return productService.getAllProducts().stream()
+              //   .filter(p -> p.getPrice() >= pricemin && p.getPrice() <= pricemax)
+               //  .toList();
+    // } 
+    
 }
+
+
